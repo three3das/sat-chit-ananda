@@ -1,8 +1,9 @@
-# Krishna Consciousness
+# Krishna.perfect.knowledge
 
 Образовательный проект — сайт с адаптивной главной страницей для мобильных и десктоп.
 
 Файлы:
+
 - `index.html` — главная страница
 - `styles.css` — стили
 - `script.js` — языковое меню + поиск
@@ -10,10 +11,13 @@
 Как запустить локально (простая статическая подача):
 
 1. С помощью Python 3:
+
 ```bash
 python -m http.server 5000
 ```
+
 2. Или с помощью Node.js и `http-server`:
+
 ```bash
 npx http-server -p 5000
 ```

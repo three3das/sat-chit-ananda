@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Образовательный проект</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="/images/banner.png" alt="Krishna" class="brand-mark" />
+        <div>
+          <div class="brand-title" id="brandTitle">Сознание Кришны</div>
+          <p>Образовательный сайт</p>
+        </div>
+      </div>
+
+      <nav class="nav-buttons">
+        <a href="ishvara.html" class="nav-btn" id="ishvaraLink">Ишвара</a>
+        <a href="jiva.html" class="nav-btn">Джива</a>
+        <a href="prakriti.html" class="nav-btn">Пракрити</a>
+        <a href="karma.html" class="nav-btn">Карма</a>
+        <a href="kala.html" class="nav-btn">Кала</a>
+      </nav>
+
+      <div class="lang-selector">
+        <button
+          id="languageButton"
+          class="lang-button"
+          aria-expanded="false"
+          aria-controls="languageMenu"
+        >
+          Выбрать язык
+          <span class="arrow">▾</span>
+        </button>
+        <div
+          id="languageMenu"
+          class="dropdown-menu"
+          role="menu"
+          aria-labelledby="languageButton"
+        >
+          <div class="language-search">
+            <label for="languageSearchInput" class="sr-only">Поиск языка</label>
+            <input
+              id="languageSearchInput"
+              class="search-input"
+              type="search"
+              placeholder="Поиск языка..."
+            />
+          </div>
+          <div id="languageList" class="language-list"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <img
+        src="/images/banner.png"
+        alt="Господь Шри Кришна играет на флейте"
+        class="hero-fullwidth-image"
+      />
+    </main>
+
+    <footer class="site-footer">
+      <section id="courses" class="cards-grid">
+        <article class="card">
+          <h3>Мобильная версия</h3>
+          <p>
+            Интерфейс адаптируется для смартфонов, планшетов и экранов с любой
+            шириной.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Компьютерная версия</h3>
+          <p>
+            Широкие блоки контента, удобная навигация и понятный дизайн на
+            больших экранах.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Языковое меню</h3>
+          <p>
+            Список языков в алфавитном порядке с особым первым местом для
+            санскрита.
+          </p>
+        </article>
+      </section>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

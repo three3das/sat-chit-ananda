@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "c:\\Users\\smost\\Knowledge Children"
+    ],
+    "allow": [
+      "PowerShell(Copy-Item -Path \"c:\\\\Users\\\\smost\\\\Knowledge Children\\\\server\" -Destination \"c:\\\\Users\\\\smost\\\\Krishna Consciousness\\\\server\" -Recurse -Force)"
+    ]
+  }
+}

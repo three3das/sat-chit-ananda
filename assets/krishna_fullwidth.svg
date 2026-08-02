@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 720" role="img" aria-label="Krishna photo with Sanskrit and Russian text">
+  <title>Krishna and Sanskrit verse with translation</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fef8eb"/>
+      <stop offset="100%" stop-color="#f7e4c0"/>
+    </linearGradient>
+    <linearGradient id="photoOverlay" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.28)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="720" fill="url(#bg)"/>
+  <rect x="40" y="40" width="820" height="640" rx="40" fill="#000"/>
+  <image x="40" y="40" width="820" height="640" preserveAspectRatio="xMidYMid slice" href="krishna_photo.jpg"/>
+  <rect x="40" y="40" width="820" height="640" rx="40" fill="url(#photoOverlay)"/>
+  <rect x="900" y="80" width="980" height="560" rx="50" fill="#f7edd9" stroke="#d4a94f" stroke-width="10"/>
+  <rect x="940" y="120" width="900" height="480" rx="30" fill="rgba(255,255,255,0.9)"/>
+  <text x="1390" y="180" font-family="'Noto Sans Devanagari', serif" font-size="46" fill="#7f4f09" font-weight="700" text-anchor="middle">श्वेताश्वतार उपनिषद्</text>
+  <text x="1390" y="230" font-family="'Noto Sans Devanagari', serif" font-size="34" fill="#7f4f09" text-anchor="middle">६.८</text>
+  <text x="980" y="310" font-family="'Noto Sans Devanagari', serif" font-size="32" fill="#5c3a0f">न तस्य कार्यं करणं च विद्यते</text>
+  <text x="980" y="360" font-family="'Noto Sans Devanagari', serif" font-size="32" fill="#5c3a0f">न तत्समश्चाभ्यधिकश्च दृश्यते।</text>
+  <text x="980" y="410" font-family="'Noto Sans Devanagari', serif" font-size="32" fill="#5c3a0f">परास्य शक्तिर्विविधैव श्रूयते</text>
+  <text x="980" y="460" font-family="'Noto Sans Devanagari', serif" font-size="32" fill="#5c3a0f">स्वाभाविकी ज्ञानबलक्रिया च॥</text>
+  <text x="980" y="530" font-family="Inter, Arial, sans-serif" font-size="24" fill="#4b3216">У Него нет ни дела, ни причины,</text>
+  <text x="980" y="565" font-family="Inter, Arial, sans-serif" font-size="24" fill="#4b3216">Ни то, ни другое не видится.</text>
+  <text x="980" y="600" font-family="Inter, Arial, sans-serif" font-size="24" fill="#4b3216">Его сила превыше всего —</text>
+  <text x="980" y="635" font-family="Inter, Arial, sans-serif" font-size="24" fill="#4b3216">Знание, мощь и деяния.</text>
+  <text x="1390" y="685" font-family="Inter, Arial, sans-serif" font-size="18" fill="#8a5d2a" text-anchor="middle">Шветашватара Упанишад 6.8 — перевод на русском</text>
+</svg>

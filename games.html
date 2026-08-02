@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Игры - Образовательный проект</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .games-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .games-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .games-header h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+
+      .games-header p {
+        font-size: 1.2rem;
+        color: #ffd700;
+        opacity: 0.8;
+      }
+
+      .games-section {
+        margin-bottom: 60px;
+      }
+
+      .games-section h2 {
+        font-size: 2rem;
+        color: #ffd700;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .game-card {
+        background: linear-gradient(135deg, #ffd700 0%, #ffc700 100%);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+      }
+
+      .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+      }
+
+      .game-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .game-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 10px;
+      }
+
+      .game-description {
+        font-size: 0.95rem;
+        color: #ffffff;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 14px 24px;
+        border-radius: 999px;
+        background: #ffd700;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 20px auto;
+        transition: all 0.3s ease;
+      }
+
+      .back-button:hover {
+        background: #ffc700;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+      }
+
+      .back-container {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .react-app-notice {
+        background: linear-gradient(135deg, #6c63ff, #3a33cc);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img
+          src="https://audioveda.ru/uploads/union/92/lechenie_dush_v_obschinah_vayshnavov.jpg"
+          alt="Krishna"
+          class="brand-mark"
+        />
+        <div>
+          <div class="brand-title">Сознание Кришны</div>
+          <p>Образовательный сайт</p>
+        </div>
+      </div>
+
+      <nav class="nav-buttons">
+        <a href="ishvara.html" class="nav-btn">Ишвара</a>
+        <a href="jiva.html" class="nav-btn">Джива</a>
+        <a href="prakriti.html" class="nav-btn">Пракрити</a>
+        <a href="karma.html" class="nav-btn">Карма</a>
+        <a href="kala.html" class="nav-btn">Кала</a>
+      </nav>
+
+      <div class="lang-selector">
+        <a href="index.html" class="lang-button" style="text-decoration: none">
+          На главную
+        </a>
+      </div>
+    </header>
+
+    <main class="games-container">
+      <div class="games-header">
+        <h1>🎮 Обучающие игры Knowledge Children</h1>
+        <p>Выберите игру для обучения и развития</p>
+      </div>
+
+      <div class="react-app-notice">
+        💡 Полное приложение со всеми играми доступно на
+        <a
+          href="http://localhost:5001"
+          style="color: #ffd700; text-decoration: underline"
+          >http://localhost:5001</a
+        >
+      </div>
+
+      <!-- Алфавит -->
+      <div class="games-section">
+        <h2>🔤 Игры с алфавитом</h2>
+        <div class="games-grid">
+          <a href="games/alphabet-ru.html" class="game-card">
+            <span class="game-icon">🇷🇺</span>
+            <h2 class="game-title">Русский алфавит</h2>
+            <p class="game-description">
+              Изучайте буквы русского языка в красивой визуализации
+            </p>
+          </a>
+
+          <a href="games/alphabet-en.html" class="game-card">
+            <span class="game-icon">🇬🇧</span>
+            <h2 class="game-title">Английский алфавит</h2>
+            <p class="game-description">Учите буквы английского языка</p>
+          </a>
+
+          <a href="games/alphabet-uk.html" class="game-card">
+            <span class="game-icon">🇺🇦</span>
+            <h2 class="game-title">Украинский алфавит</h2>
+            <p class="game-description">Познакомьтесь с украинским алфавитом</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Интерактивные игры -->
+      <div class="games-section">
+        <h2>🎯 Интерактивные игры (React-приложение)</h2>
+        <div class="games-grid">
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🖼️</span>
+            <h2 class="game-title">Picture Match</h2>
+            <p class="game-description">Сопоставляйте картинки со словами</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">✏️</span>
+            <h2 class="game-title">Spell Word</h2>
+            <p class="game-description">Составляйте слова из букв</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🧱</span>
+            <h2 class="game-title">Syllables Game</h2>
+            <p class="game-description">
+              Играйте со слогами и учите произношение
+            </p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">📝</span>
+            <h2 class="game-title">Sentence Game</h2>
+            <p class="game-description">Составляйте правильные предложения</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🔊</span>
+            <h2 class="game-title">Audio Picture</h2>
+            <p class="game-description">
+              Слушайте и выбирайте правильную картинку
+            </p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🎧</span>
+            <h2 class="game-title">Audio Sentence</h2>
+            <p class="game-description">Слушайте и составляйте предложения</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Категории обучения -->
+      <div class="games-section">
+        <h2>📚 Категории обучения</h2>
+        <div class="games-grid">
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🎨</span>
+            <h2 class="game-title">Цвета</h2>
+            <p class="game-description">Изучайте цвета на разных языках</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🔷</span>
+            <h2 class="game-title">Фигуры</h2>
+            <p class="game-description">
+              Познакомьтесь с геометрическими фигурами
+            </p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🔢</span>
+            <h2 class="game-title">Числа</h2>
+            <p class="game-description">Учите числа и счёт</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🦋</span>
+            <h2 class="game-title">Живой мир</h2>
+            <p class="game-description">Изучайте животных и природу</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">📖</span>
+            <h2 class="game-title">Чтение</h2>
+            <p class="game-description">Учитесь читать и понимать тексты</p>
+          </a>
+
+          <a href="http://localhost:5001" target="_blank" class="game-card">
+            <span class="game-icon">🎵</span>
+            <h2 class="game-title">Ноты</h2>
+            <p class="game-description">Основы музыкальной грамоты</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="back-container">
+        <a href="index.html" class="back-button">← Вернуться на главную</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Учебный портал © 2026 — обучающие игры Knowledge Children для детей и
+        взрослых.
+      </p>
+    </footer>
+  </body>
+</html>

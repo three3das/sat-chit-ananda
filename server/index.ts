@@ -67,7 +67,7 @@ app.get("/api/audio/ishvara", (req, res) => {
   }
 });
 
-// Serve legacy Krishna Consciousness static pages (scoped, not the whole
+// Serve legacy static pages (scoped, not the whole
 // project root — only known files/folders — so it doesn't get swallowed
 // by Vite's dev-server catch-all route below).
 const projectRoot = path.resolve(import.meta.dirname, "..");

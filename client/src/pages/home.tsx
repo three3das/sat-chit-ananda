@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { CATEGORIES } from "@/lib/categories";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeaderFooter";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useLanguage } from "@/lib/i18n";
 import { useAuth } from "@/lib/auth";
@@ -151,7 +151,7 @@ export default function HomePage() {
                         background: "rgba(0,0,0,0.18)",
                       }}
                     >
-                      {cat.text ? cat.text[language] : cat.label}
+                      {cat.text ? (cat.text as Record<string, string>)[language] ?? cat.text.ru : cat.label}
                     </span>
 
                     {/* Zamok dlya zablokirovannyh knopok */}

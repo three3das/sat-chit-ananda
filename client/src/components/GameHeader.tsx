@@ -3,19 +3,15 @@ import { useMemo } from "react";
 import { GAME_CONFIG, ANIMATION_VARIANTS } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { AuthDropdown } from "./AuthDropdown";
 
 interface GameHeaderProps {
   currentWordIndex: number;
   totalWords: number;
   correctAnswersToday: number;
   onSettingsClick: () => void;
-  onLoginClick: () => void;
-  onCreateAccountClick: () => void;
-  onProgressClick?: () => void;
 }
 
-export function GameHeader({ currentWordIndex, totalWords, correctAnswersToday, onSettingsClick, onLoginClick, onCreateAccountClick, onProgressClick }: GameHeaderProps) {
+export function GameHeader({ currentWordIndex, totalWords, correctAnswersToday, onSettingsClick }: GameHeaderProps) {
   const { t } = useLanguage();
 
   // Calculate progress based on today's correct answers
@@ -149,19 +145,20 @@ export function GameHeader({ currentWordIndex, totalWords, correctAnswersToday, 
             <LanguageSwitcher />
           </motion.div>
 
-          {/* Auth Dropdown - Far Right */}
+          {/* Settings button - Far Right */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.28 }}
             className="flex-shrink-0"
           >
-            <AuthDropdown
-              onLoginClick={onLoginClick}
-              onCreateAccountClick={onCreateAccountClick}
-              onProgressClick={onProgressClick}
-              onSettingsClick={onSettingsClick}
-            />
+            <button
+              onClick={onSettingsClick}
+              aria-label="Settings"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors text-lg md:text-xl"
+            >
+              ⚙️
+            </button>
           </motion.div>
         </div>
       </div>

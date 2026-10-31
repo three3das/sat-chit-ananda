@@ -1,6 +1,6 @@
-import { useLocation } from "wouter";
+﻿import { useLocation } from "wouter";
 import { useLanguage } from "@/lib/i18n";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeaderFooter";
 
 const MARKS: {
   symbol: string;
@@ -134,3 +134,4 @@ export default function PunctuationPage() {
     </div>
   );
 }
+

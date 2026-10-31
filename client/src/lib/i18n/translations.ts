@@ -1,6 +1,6 @@
 import type { Language, Translations } from './types';
 
-export const translations: Record<Language, Translations> = {
+export const translations: Partial<Record<Language, Translations>> = {
   ru: {
     // Header
     settings: 'Настройки',
@@ -16,6 +16,10 @@ export const translations: Record<Language, Translations> = {
     loadingImages: 'Загрузка изображений...',
     loadingOptions: 'Загружаем варианты...',
     loading: 'Загрузка...',
+
+    // Empty / error states
+    noDataAvailable: 'Нет данных для этой игры',
+    loadingError: 'Ошибка загрузки данных',
 
     // Game completion
     congratulations: 'Поздравляем!',
@@ -38,6 +42,7 @@ export const translations: Record<Language, Translations> = {
       sentences: 'Прочитай предложение и найди картинку, которая соответствует описанию.',
       audioPicture: 'Послушай слово и найди правильную картинку. Язык озвучки можно переключить вверху экрана.',
       audioSentence: 'Послушай предложение и найди картинку, которая соответствует описанию.',
+      calculator: 'Нажимай кнопки на вкладках «Числа», «Знаки» и «Буквы», затем «=». Углы пиши в градусах, минутах и секундах, например cos 30°30′30″ (sin, cos, tan, cot всегда считают в градусах). Названия функций можно набрать буквами: «косинус 60°». Язык и письменность букв выбираются вверху экрана. Пока не работает: сохранение на дискету. Результаты сеанса видны, пока открыта страница.',
       default: 'Следуй инструкциям на экране.',
     },
 
@@ -177,6 +182,10 @@ export const translations: Record<Language, Translations> = {
     loadingOptions: 'Loading options...',
     loading: 'Loading...',
 
+    // Empty / error states
+    noDataAvailable: 'No data available for this game',
+    loadingError: 'Error loading data',
+
     // Game completion
     congratulations: 'Congratulations!',
     completedAllWords: 'You completed all words!',
@@ -198,6 +207,7 @@ export const translations: Record<Language, Translations> = {
       sentences: 'Read the sentence and find the picture that matches the description.',
       audioPicture: 'Listen to the word and find the correct picture. You can switch the audio language at the top of the screen.',
       audioSentence: 'Listen to the sentence and find the picture that matches the description.',
+      calculator: 'Use the Numbers, Signs and Letters tabs, then press "=". Write angles in degrees, minutes and seconds, e.g. cos 30°30′30″ (sin, cos, tan, cot always take degrees). You can type function names with letters: "cosine 60°". Pick the language and script of the letters at the top of the screen. Not active yet: saving to the floppy disk. Session results stay visible while the page is open.',
       default: 'Follow the instructions on screen.',
     },
 
@@ -337,6 +347,10 @@ export const translations: Record<Language, Translations> = {
     loadingOptions: 'Завантажуємо варіанти...',
     loading: 'Завантаження...',
 
+    // Empty / error states
+    noDataAvailable: 'Немає даних для цієї гри',
+    loadingError: 'Помилка завантаження даних',
+
     // Game completion
     congratulations: 'Вітаємо!',
     completedAllWords: 'Ти пройшов усі слова!',
@@ -358,6 +372,7 @@ export const translations: Record<Language, Translations> = {
       sentences: 'Прочитай речення і знайди картинку, яка відповідає опису.',
       audioPicture: 'Послухай слово і знайди правильну картинку. Мову озвучки можна переключити вгорі екрана.',
       audioSentence: 'Послухай речення і знайди картинку, яка відповідає опису.',
+      calculator: "Calculator",
       default: 'Слідуй інструкціям на екрані.',
     },
 
@@ -497,6 +512,10 @@ export const translations: Record<Language, Translations> = {
     loadingOptions: 'विकल्पाः लोड्यन्ते... (Vikalpāḥ loḍyante...)',
     loading: 'लोडिंग... (Loḍiṅg...)',
 
+    // Empty / error states
+    noDataAvailable: 'अस्याः क्रीडायाः कृते दत्तांशः नास्ति (Asyāḥ krīḍāyāḥ kṛte dattāṃśaḥ nāsti)',
+    loadingError: 'दत्तांश-लोडने त्रुटिः (Dattāṃśa-loḍane truṭiḥ)',
+
     // Game completion
     congratulations: 'अभिनन्दनम्! (Abhinandanam!)',
     completedAllWords: 'त्वं सर्वाणि शब्दानि पूर्णानि कृतवान्! (Tvaṃ sarvāṇi śabdāni pūrṇāni kṛtavān!)',
@@ -518,6 +537,7 @@ export const translations: Record<Language, Translations> = {
       sentences: 'वाक्यं पठ वर्णनेन सह योज्यमानं चित्रं च अन्विष्य। (Vākyaṃ paṭha varṇanena saha yojyamānaṃ citraṃ ca anviṣya.)',
       audioPicture: 'शब्दं शृणु सम्यक् चित्रं च अन्विष्य। ध्वनि-भाषां ऊर्ध्वे परिवर्तयितुं शक्यते। (Śabdaṃ śṛṇu samyak citraṃ ca anviṣya. Dhvani-bhāṣāṃ ūrdhve parivartayituṃ śakyate.)',
       audioSentence: 'वाक्यं शृणु वर्णनेन सह योज्यमानं चित्रं च अन्विष्य। (Vākyaṃ śṛṇu varṇanena saha yojyamānaṃ citraṃ ca anviṣya.)',
+      calculator: "Calculator",
       default: 'पर्दायाः निर्देशान् अनुसर। (Pardāyāḥ nirdeśān anusara.)',
     },
 
@@ -641,12 +661,20 @@ export const translations: Record<Language, Translations> = {
     },
   },
 };
-
 export const LANGUAGE_FLAGS: Record<Language, string> = {
   en: 'EN',
   ru: 'RU',
   uk: 'UA',
   sa: 'SA',
+  ar: 'AR',
+  bn: 'BN',
+  es: 'ES',
+  id: 'ID',
+  pt: 'PT',
+  ur: 'UR',
+  fr: 'FR',
+  hi: 'HI',
 };
-
 export const DEFAULT_LANGUAGE: Language = 'sa';
+export const getTranslations = (lang: Language): Translations =>
+  translations[lang] ?? translations.en!;

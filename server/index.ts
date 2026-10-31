@@ -5,19 +5,11 @@ import path from "path";
 import fs from "fs";
 import dotenv from "dotenv";
 import XLSX from "xlsx";
-import paymentsRouter from "./routes/payments";
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
-
-// ─── ВАЖНО: webhook должен быть ДО express.json() ────────────────────────────
-// NOWPayments отправляет сырой body — его нельзя парсить через JSON
-app.use(
-  "/api/payments/webhook",
-  express.raw({ type: "application/json" })
-);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -84,13 +76,6 @@ app.get(/^\/[\w-]+\.html$/, (req, res, next) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(projectRoot, "index.html"));
-});
-
-// ─── Подключить роутер платежей ───────────────────────────────────────────────
-app.use("/api/payments", paymentsRouter);
-
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -140,10 +125,6 @@ app.use((req, res, next) => {
   } else {
     serveStatic(app);
   }
-
-  // ─── Запустить фоновые задачи (проверка истёкших подписок) ───────────────
-  const { startCronJobs } = await import("./services/cron");
-  startCronJobs();
 
   const port = parseInt(process.env.PORT || '5000', 10);
   server.listen(port, "0.0.0.0", () => {

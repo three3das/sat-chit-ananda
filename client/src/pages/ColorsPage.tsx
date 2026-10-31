@@ -1,6 +1,6 @@
-import { useLocation } from "wouter";
+﻿import { useLocation } from "wouter";
 import { useLanguage } from "@/lib/i18n";
-import { SiteHeader } from "@/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeaderFooter";
 
 // ── Color data ────────────────────────────────────────────────────────────────
 
@@ -139,3 +139,4 @@ export default function ColorsPage() {
     </div>
   );
 }
+

@@ -4,7 +4,6 @@ import { type Word, type GameType, type MaterialWorld } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { GAME_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n";
-import { useAuth } from "@/lib/auth";
 import { GameHeader } from "@/components/GameHeader";
 import { GameMenu } from "@/components/GameMenu";
 import { WordDisplay } from "@/components/WordDisplay";
@@ -16,9 +15,6 @@ import { SentenceGame } from "@/components/SentenceGame";
 import { AudioPictureGame } from "@/components/AudioPictureGame";
 import { AudioSentenceGame } from "@/components/AudioSentenceGame";
 import { AlphabetTutor } from "@/components/AlphabetTutor";
-import { LoginModal } from "@/components/LoginModal";
-import { CreateAccountModal } from "@/components/CreateAccountModal";
-import { ProgressModal } from "@/components/ProgressModal";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -44,9 +40,6 @@ export default function Game() {
   const [selectedSentence, setSelectedSentence] = useState<MaterialWorld | null>(null);
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [gameType, setGameType] = useState<GameType>(urlParams.game || 'picture-match');
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showCreateAccountModal, setShowCreateAccountModal] = useState(false);
-  const [showProgressModal, setShowProgressModal] = useState(false);
   const [sessionId] = useState(() => {
     // Check if we have a session ID in localStorage
     const stored = localStorage.getItem('russian-game-session');
@@ -440,19 +433,6 @@ export default function Game() {
     setShowCelebration(false);
   };
 
-  const handleLoginClick = () => setShowLoginModal(true);
-  const handleCreateAccountClick = () => setShowCreateAccountModal(true);
-
-  const switchToCreateAccount = () => {
-    setShowLoginModal(false);
-    setShowCreateAccountModal(true);
-  };
-
-  const switchToLogin = () => {
-    setShowCreateAccountModal(false);
-    setShowLoginModal(true);
-  };
-
   const handleSyllableAnswer = (isCorrect: boolean) => {
     if (selectedPicture || showCelebration) return;
 
@@ -550,9 +530,6 @@ export default function Game() {
         totalWords={words.length}
         correctAnswersToday={todayProgress?.correctAnswersToday || 0}
         onSettingsClick={handleSettingsClick}
-        onLoginClick={handleLoginClick}
-        onCreateAccountClick={handleCreateAccountClick}
-        onProgressClick={() => setShowProgressModal(true)}
       />
 
       <main className="flex-1 overflow-y-auto max-w-6xl mx-auto px-4 pt-2 pb-8 w-full">
@@ -679,23 +656,6 @@ export default function Game() {
         key={`celebration-${currentWord?.id}-${correctAnswers}`}
         isVisible={showCelebration}
         onNext={handleNextWord}
-      />
-
-      {/* Auth Modals */}
-      <LoginModal
-        isOpen={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-        onSwitchToCreateAccount={switchToCreateAccount}
-      />
-      <CreateAccountModal
-        isOpen={showCreateAccountModal}
-        onClose={() => setShowCreateAccountModal(false)}
-        onSwitchToLogin={switchToLogin}
-      />
-      <ProgressModal
-        isOpen={showProgressModal}
-        onClose={() => setShowProgressModal(false)}
-        sessionId={sessionId}
       />
     </div>
   );

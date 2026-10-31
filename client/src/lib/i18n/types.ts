@@ -103,36 +103,6 @@ export interface Translations {
   // Celebration messages
   celebrations: readonly string[];
 
-  // Authentication
-  auth: {
-    login: string;
-    createAccount: string;
-    logout: string;
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    forgotPassword: string;
-    orContinueWith: string;
-    continueWithGoogle: string;
-    alreadyHaveAccount: string;
-    dontHaveAccount: string;
-    signInHere: string;
-    createAccountHere: string;
-    loginRequired: string;
-    passwordRequirements: {
-      title: string;
-      length: string;
-      number: string;
-      uppercase: string;
-      lowercase: string;
-    };
-    newsletter: string;
-    termsText: string;
-    termsLink: string;
-    privacyLink: string;
-  };
-
   // Progress modal
   progress: {
     title: string;

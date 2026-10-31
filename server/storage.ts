@@ -1,7 +1,6 @@
-import { type Word, type InsertWord, type SentenceAndPhrase, type InsertSentence, type GameProgress, type InsertGameProgress, type UserAnswer, type InsertUserAnswer, type User, type InsertUser, type PasswordResetToken, type WordTranslation, type MaterialWorld, words, sentencesAndPhrases, userAnswers, users, passwordResetTokens, wordTranslations, materialWorld } from "@shared/schema";
+import { type Word, type InsertWord, type SentenceAndPhrase, type InsertSentence, type GameProgress, type InsertGameProgress, type UserAnswer, type InsertUserAnswer, type WordTranslation, type MaterialWorld, words, sentencesAndPhrases, userAnswers, wordTranslations, materialWorld } from "@shared/schema";
 import { db } from "./db";
 import { eq, and, gt, sql, notInArray } from "drizzle-orm";
-import { randomUUID } from "crypto";
 
 // Import blacklist from constants
 // These are words with non-standard spelling or rare letters that are 
@@ -12,17 +11,6 @@ const LEARNING_BLACKLIST = {
 } as const;
 
 export interface IStorage {
-  // User management
-  createUser(user: InsertUser): Promise<User>;
-  getUserByEmail(email: string): Promise<User | undefined>;
-  getUserById(id: string): Promise<User | undefined>;
-  updateUserPassword(userId: string, hashedPassword: string): Promise<void>;
-
-  // Password reset tokens
-  createPasswordResetToken(userId: string): Promise<string>;
-  getPasswordResetToken(token: string): Promise<PasswordResetToken | undefined>;
-  markTokenAsUsed(tokenId: string): Promise<void>;
-
   // Word management
   getAllWords(): Promise<Word[]>;
   getWord(id: string): Promise<Word | undefined>;
@@ -97,57 +85,6 @@ export class DatabaseStorage implements IStorage {
       !this.isWordBlacklisted(word.word) &&
       !this.containsBlacklistedLetters(word.word)
     );
-  }
-
-  // User management methods
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db.insert(users).values(insertUser).returning();
-    return user;
-  }
-
-  async getUserByEmail(email: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.email, email));
-    return user || undefined;
-  }
-
-  async getUserById(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user || undefined;
-  }
-
-  async updateUserPassword(userId: string, hashedPassword: string): Promise<void> {
-    await db.update(users).set({ password: hashedPassword }).where(eq(users.id, userId));
-  }
-
-  // Password reset token methods
-  async createPasswordResetToken(userId: string): Promise<string> {
-    const token = randomUUID() + '-' + randomUUID(); // Generate a long unique token
-    const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
-
-    await db.insert(passwordResetTokens).values({
-      userId,
-      token,
-      expiresAt,
-      used: false,
-    });
-
-    return token;
-  }
-
-  async getPasswordResetToken(token: string): Promise<PasswordResetToken | undefined> {
-    const [resetToken] = await db.select().from(passwordResetTokens)
-      .where(
-        and(
-          eq(passwordResetTokens.token, token),
-          eq(passwordResetTokens.used, false),
-          gt(passwordResetTokens.expiresAt, new Date())
-        )
-      );
-    return resetToken || undefined;
-  }
-
-  async markTokenAsUsed(tokenId: string): Promise<void> {
-    await db.update(passwordResetTokens).set({ used: true }).where(eq(passwordResetTokens.id, tokenId));
   }
 
   private async ensureInitialized() {

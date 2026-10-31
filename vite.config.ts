@@ -30,19 +30,10 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
-    port: 5001,
     host: true,  // Allow external connections from mobile devices
     fs: {
       strict: true,
       deny: ["**/.*"],
     },
-    proxy: {
-      '/api': {
-        target: 'http://192.168.0.102:80',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
   },
 });
-

@@ -84,10 +84,6 @@ app.get(/^\/[\w-]+\.html$/, (req, res, next) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(projectRoot, "index.html"));
-});
-
 // ─── Подключить роутер платежей ───────────────────────────────────────────────
 app.use("/api/payments", paymentsRouter);
 
